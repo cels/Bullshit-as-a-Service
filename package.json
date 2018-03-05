@@ -1,0 +1,17 @@
+{
+  "name": "bullshit-as-a-service",
+  "version": "1.0.0",
+  "description": "Hyper scalable API for creating bullshit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: not tests implemented and required, bullshit always works\" && exit 1"
+  },
+  "keywords": [
+    "bullshit"
+  ],
+  "author": "Christoph Federwisch",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
