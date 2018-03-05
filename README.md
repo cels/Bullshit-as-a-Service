@@ -10,11 +10,22 @@ This is a lean MVP micro-service implemented with the synergy of [Sans Bullshit 
 4. Create pitch deck
 5. Hockey stick profit
 
-### Global Variables
+### Environment Variables
 
-Global variables that have to be set in order to run this application.
+Environment variables that have to be set in order to run this application.
 
-* `BULLSHIT_PORT` - The port the app will listen on.
+* `BULLSHIT_PORT` The port the app will listen on and responsd with pure bullshit
+
+### API
+
+`GET` on `\` returns JSON, example:
+
+```
+{
+  "bullshit": "disruptive"
+}
+```
+
 
 ### TODOs
 
