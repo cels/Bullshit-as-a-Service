@@ -18,7 +18,7 @@ Environment variables that have to be set in order to run this application.
 
 ### API
 
-`GET` on `\` returns JSON, example:
+`GET` on `*` returns JSON, example:
 
 ```
 {
