@@ -3,26 +3,36 @@
 const express = require('express');
 
 const port = process.env.BULLSHIT_PORT;
-const bullshits = require('./bullshit').bullshit;
-const numberOfBullshit = bullshits.length;
+const bullshitsCollection = require('./bullshit').bullshit;
+const numberOfBullshit = bullshitsCollection.length;
 
 if(!port) {
   throw new Error('No port set.');
 }
 
-function getRandomBullshitIndex() {
-  return Math.floor(Math.random() * Math.floor(numberOfBullshit));
+function getRandomBullshit() {
+  return bullshitsCollection[Math.floor(Math.random() * Math.floor(numberOfBullshit))];
 }
 
 const app = express();
 
 app.disable('x-powered-by');
 
-app.get('*', (req, res) => {
-  const bullshit = bullshits[getRandomBullshitIndex()];
+app.get('/bullshits', (req, res) => {
+  const amount = req.query.amount || 1;
+
+  const bullshits = [];
+
+  for(let i = 0; i < amount; i++) {
+    bullshits.push(getRandomBullshit());
+  }
 
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({ bullshit }));
+  res.send(JSON.stringify({ bullshits }));
+});
+
+app.all('*', (req, res) => {
+  res.status(404).send('We only give, we do not take. Sorry.').end();
 });
 
 app.listen(port, () => {

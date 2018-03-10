@@ -2,6 +2,9 @@
 
 This is a lean MVP micro-service implemented with the synergy of [Sans Bullshit Sans'](https://github.com/RoelN/SansBullshitSans) ligature [list](https://gist.github.com/RoelN/6f26118847e2f0cc95c7) and [bullshit.js](https://gist.github.com/raydog/9959637).
 
+### Version
+1.0.1
+
 ### Setup
 
 1. Run `npm install`
@@ -14,21 +17,34 @@ This is a lean MVP micro-service implemented with the synergy of [Sans Bullshit 
 
 Environment variables that have to be set in order to run this application.
 
-* `BULLSHIT_PORT` The port the app will listen on and responsd with pure bullshit
+* `BULLSHIT_PORT` The port the app will listen on and respond with pure bullshit
 
 ### API
 
-`GET` on `*` returns JSON, example:
+`GET` on `/bullshits` returns JSON, example:
 
 ```
 {
-  "bullshit": "disruptive"
+  "bullshits": ["disruptive"]
+}
+```
+
+Optional parameters:
+* `amount` get multiple bullshits per request. Handy for increasing your bullshits/second throughput.
+
+For example, `/bullshits?amount=3` returns:
+
+```
+{
+  "bullshits": ["disruptive", "DRM", "web services"]
 }
 ```
 
 
 ### TODOs
 
+* Blockchain Integration
+* Make ICO
 * Dockerize
 * Gamification
 * Server-less Setup Instructions on AWS Lambda

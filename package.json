@@ -1,6 +1,6 @@
 {
   "name": "bullshit-as-a-service",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hyper scalable API for creating bullshit",
   "main": "index.js",
   "scripts": {
